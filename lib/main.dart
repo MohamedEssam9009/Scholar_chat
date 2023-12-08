@@ -16,10 +16,10 @@ class ScholarChat extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Scholar Chat',
       routes: {
-        'LoginPage': (context) => const LoginPage(),
-        'RegisterPage': (context) => const RegisterPage(),
+        LoginPage.id: (context) => const LoginPage(),
+        RegisterPage.id: (context) => const RegisterPage(),
       },
-      initialRoute: 'LoginPage',
+      initialRoute: LoginPage.id,
     );
   }
 }
