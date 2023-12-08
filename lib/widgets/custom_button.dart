@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class CustomButton extends StatelessWidget {
-  const CustomButton({super.key});
+  CustomButton({super.key, required this.text});
+
+  String text;
 
   @override
   Widget build(BuildContext context) {
@@ -11,9 +14,9 @@ class CustomButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(8.0),
       ),
       width: double.infinity,
-      height: 40.0,
-      child: const Center(
-        child: Text('LOGIN'),
+      height: 60.0,
+      child: Center(
+        child: Text(text),
       ),
     );
   }

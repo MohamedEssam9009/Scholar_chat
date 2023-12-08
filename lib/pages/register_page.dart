@@ -1,10 +1,10 @@
-import 'package:chat_app/pages/register_page.dart';
-import 'package:chat_app/widgets/custom_button.dart';
-import 'package:chat_app/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+import '../widgets/custom_button.dart';
+import '../widgets/custom_text_field.dart';
+
+class RegisterPage extends StatelessWidget {
+  const RegisterPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,7 @@ class LoginPage extends StatelessWidget {
             const Row(
               children: [
                 Text(
-                  'LOGIN',
+                  'Register',
                   style: TextStyle(
                     fontSize: 24.0,
                     color: Colors.white,
@@ -41,31 +41,19 @@ class LoginPage extends StatelessWidget {
             const SizedBox(height: 10.0),
             CustomTextField(hinText: 'Password'),
             const SizedBox(height: 20.0),
-            CustomButton(text: 'Login'),
+            CustomButton(text: 'Register'),
             const SizedBox(height: 10.0),
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text(
-                  'Don\'t have an account?',
+                Text(
+                  'Already have an account',
                   style: TextStyle(color: Colors.white),
                 ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return const RegisterPage();
-                        },
-                      ),
-                    );
-                  },
-                  child: const Text(
-                    ' Register',
-                    style: TextStyle(
-                      color: Color(0xff27EDE6),
-                    ),
+                Text(
+                  ' Login',
+                  style: TextStyle(
+                    color: Color(0xff27EDE6),
                   ),
                 ),
               ],
