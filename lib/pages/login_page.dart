@@ -1,4 +1,3 @@
-import 'package:chat_app/pages/register_page.dart';
 import 'package:chat_app/widgets/custom_button.dart';
 import 'package:chat_app/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
@@ -52,14 +51,7 @@ class LoginPage extends StatelessWidget {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return const RegisterPage();
-                        },
-                      ),
-                    );
+                    Navigator.pushNamed(context, 'RegisterPage');
                   },
                   child: const Text(
                     ' Register',
