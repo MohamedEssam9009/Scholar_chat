@@ -16,19 +16,27 @@ class LoginPage extends StatelessWidget {
       backgroundColor: kPrimaryColor,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
-        child: Column(
+        child: ListView(
           children: [
-            const Spacer(flex: 2),
-            Image.asset('assets/images/scholar.png'),
-            const Text(
-              'Scholar Chat',
-              style: TextStyle(
-                fontSize: 32.0,
-                color: Colors.white,
-                fontFamily: 'Pacifico',
-              ),
+            const SizedBox(height: 75.0),
+            Image.asset(
+              'assets/images/scholar.png',
+              height: 100.0,
             ),
-            const Spacer(flex: 2),
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Scholar Chat',
+                  style: TextStyle(
+                    fontSize: 32.0,
+                    color: Colors.white,
+                    fontFamily: 'Pacifico',
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 75.0),
             const Row(
               children: [
                 Text(
@@ -67,7 +75,6 @@ class LoginPage extends StatelessWidget {
                 ),
               ],
             ),
-            const Spacer(flex: 3)
           ],
         ),
       ),
