@@ -13,6 +13,7 @@ class LoginPage extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
         child: Column(
           children: [
+            const Spacer(flex: 2),
             Image.asset('assets/images/scholar.png'),
             const Text(
               'Scholar Chat',
@@ -22,16 +23,41 @@ class LoginPage extends StatelessWidget {
                 fontFamily: 'Pacifico',
               ),
             ),
-            const Text(
-              'LOGIN',
-              style: TextStyle(
-                fontSize: 24.0,
-                color: Colors.white,
-              ),
+            const Spacer(flex: 2),
+            const Row(
+              children: [
+                Text(
+                  'LOGIN',
+                  style: TextStyle(
+                    fontSize: 24.0,
+                    color: Colors.white,
+                  ),
+                ),
+              ],
             ),
+            const SizedBox(height: 20.0),
             CustomTextField(hinText: 'Email'),
+            const SizedBox(height: 10.0),
             CustomTextField(hinText: 'Password'),
+            const SizedBox(height: 20.0),
             const CustomButton(),
+            const SizedBox(height: 10.0),
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Don\'t have an account?',
+                  style: TextStyle(color: Colors.white),
+                ),
+                Text(
+                  ' Register',
+                  style: TextStyle(
+                    color: Color(0xff27EDE6),
+                  ),
+                ),
+              ],
+            ),
+            const Spacer(flex: 3)
           ],
         ),
       ),
