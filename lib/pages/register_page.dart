@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import '../widgets/custom_button.dart';
 import '../widgets/custom_text_field.dart';
 
+// ignore: must_be_immutable
 class RegisterPage extends StatelessWidget {
   RegisterPage({super.key});
 
@@ -66,14 +67,28 @@ class RegisterPage extends StatelessWidget {
             const SizedBox(height: 20.0),
             CustomButton(
                 onTap: () async {
-                  var auth = FirebaseAuth.instance;
-                  UserCredential user =
-                      await auth.createUserWithEmailAndPassword(
-                    email: email!,
-                    password: password!,
-                  );
-
-                  print(user.user!.displayName);
+                  try {
+                    UserCredential user = await FirebaseAuth.instance
+                        .createUserWithEmailAndPassword(
+                      email: email!,
+                      password: password!,
+                    );
+                  } on FirebaseAuthException catch (e) {
+                    if (e.code == 'weak-password') {
+                      // ignore: use_build_context_synchronously
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                          content: Text('The password provided is too weak.')));
+                    } else if (e.code == 'email-already-in-use') {
+                      // ignore: use_build_context_synchronously
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                        content: Text('email already exists'),
+                      ));
+                    }
+                  }
+                  // ignore: use_build_context_synchronously
+                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                    content: Text('Success'),
+                  ));
                 },
                 text: 'Register'),
             const SizedBox(height: 10.0),
