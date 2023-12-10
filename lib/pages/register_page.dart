@@ -68,27 +68,18 @@ class RegisterPage extends StatelessWidget {
             CustomButton(
                 onTap: () async {
                   try {
-                    UserCredential user = await FirebaseAuth.instance
-                        .createUserWithEmailAndPassword(
-                      email: email!,
-                      password: password!,
-                    );
+                    await registerUser();
                   } on FirebaseAuthException catch (e) {
                     if (e.code == 'weak-password') {
                       // ignore: use_build_context_synchronously
-                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                          content: Text('The password provided is too weak.')));
+                      showSnackBar(context, 'weak-password');
                     } else if (e.code == 'email-already-in-use') {
                       // ignore: use_build_context_synchronously
-                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                        content: Text('email already exists'),
-                      ));
+                      showSnackBar(context, 'email already exists');
                     }
                   }
                   // ignore: use_build_context_synchronously
-                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                    content: Text('Success'),
-                  ));
+                  showSnackBar(context, 'Success');
                 },
                 text: 'Register'),
             const SizedBox(height: 10.0),
@@ -115,6 +106,19 @@ class RegisterPage extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  void showSnackBar(BuildContext context, String message) {
+    ScaffoldMessenger.of(context)
+        .showSnackBar(SnackBar(content: Text(message)));
+  }
+
+  Future<void> registerUser() async {
+    UserCredential user =
+        await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      email: email!,
+      password: password!,
     );
   }
 }
