@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
-class CustomTextField extends StatelessWidget {
-  CustomTextField({super.key, this.hinText, this.onChanged});
+class CustomTextFormField extends StatelessWidget {
+  CustomTextFormField({super.key, this.hintText, this.onChanged});
 
-  String? hinText;
+  String? hintText;
   Function(String)? onChanged;
 
   @override
@@ -18,7 +18,7 @@ class CustomTextField extends StatelessWidget {
       },
       onChanged: onChanged,
       decoration: InputDecoration(
-        hintText: hinText,
+        hintText: hintText,
         hintStyle: const TextStyle(color: Colors.white),
         enabledBorder: const OutlineInputBorder(
           borderSide: BorderSide(color: Colors.white),
