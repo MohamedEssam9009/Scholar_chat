@@ -1,4 +1,5 @@
 import 'package:chat_app/helper/show_snak_bar.dart';
+import 'package:chat_app/pages/chat_page.dart';
 import 'package:chat_app/pages/register_page.dart';
 import 'package:chat_app/widgets/custom_button.dart';
 import 'package:chat_app/widgets/custom_text_form_field.dart';
@@ -101,8 +102,7 @@ class _LoginPageState extends State<LoginPage> {
                       setState(() {});
                       try {
                         await loginUser();
-                        showSnackBar(context, 'Success');
-                        // Navigator.pushNamed(context, ChatPage.id,
+                        Navigator.pushNamed(context, ChatPage.id);
                         //     arguments: email);
                       } on FirebaseAuthException catch (ex) {
                         if (ex.code == 'user-not-found') {
