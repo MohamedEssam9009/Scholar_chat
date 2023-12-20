@@ -1,6 +1,8 @@
 import 'package:chat_app/constants.dart';
 import 'package:flutter/material.dart';
 
+import '../widgets/chat_bubble.dart';
+
 class ChatPage extends StatelessWidget {
   const ChatPage({super.key});
 
@@ -24,6 +26,7 @@ class ChatPage extends StatelessWidget {
         ),
         centerTitle: true,
       ),
+      body: const ChatBubble(),
     );
   }
 }
