@@ -26,7 +26,11 @@ class ChatPage extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: const ChatBubble(),
+      body: ListView.builder(
+        itemBuilder: (context, index) {
+          return ChatBubble();
+        },
+      ),
     );
   }
 }
