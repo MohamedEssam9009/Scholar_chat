@@ -1,6 +1,6 @@
-import 'package:chat_app/constants.dart';
-import 'package:chat_app/helper/show_snack_bar.dart';
-import 'package:chat_app/pages/chat_page.dart';
+import '../constants.dart';
+import '../helper/show_snack_bar.dart';
+import 'chat_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
