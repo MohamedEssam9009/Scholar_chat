@@ -19,6 +19,7 @@ class ChatPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var email = ModalRoute.of(context)!.settings.arguments;
     return StreamBuilder<QuerySnapshot>(
       stream: messages.orderBy(kCreatedAt, descending: true).snapshots(),
       builder: (context, snapshot) {
@@ -51,7 +52,7 @@ class ChatPage extends StatelessWidget {
                     controller: scrollController,
                     itemCount: messagesList.length,
                     itemBuilder: (context, index) {
-                      return ChatBubble(
+                      return ChatBubbleForFriend(
                         message: messagesList[index],
                       );
                     },
@@ -65,6 +66,7 @@ class ChatPage extends StatelessWidget {
                       messages.add({
                         kMessage: data,
                         kCreatedAt: DateTime.now(),
+                        'id': email,
                       });
 
                       controller.clear();
