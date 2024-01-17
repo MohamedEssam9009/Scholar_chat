@@ -45,7 +45,7 @@ class ChatBubbleForFriend extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: Alignment.centerLeft,
+      alignment: Alignment.centerRight,
       child: Container(
         padding: const EdgeInsets.only(
           left: 16.0,
@@ -55,11 +55,11 @@ class ChatBubbleForFriend extends StatelessWidget {
         ),
         margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
         decoration: const BoxDecoration(
-          color: Colors.orange,
+          color: Color(0xff006D84),
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(32.0),
             topRight: Radius.circular(32.0),
-            bottomRight: Radius.circular(32.0),
+            bottomLeft: Radius.circular(32.0),
           ),
         ),
         child: Text(

@@ -52,9 +52,11 @@ class ChatPage extends StatelessWidget {
                     controller: scrollController,
                     itemCount: messagesList.length,
                     itemBuilder: (context, index) {
-                      return ChatBubbleForFriend(
-                        message: messagesList[index],
-                      );
+                      return messagesList[index].id == email
+                          ? ChatBubbleForFriend(
+                              message: messagesList[index],
+                            )
+                          : ChatBubbleForFriend(message: messagesList[index]);
                     },
                   ),
                 ),
