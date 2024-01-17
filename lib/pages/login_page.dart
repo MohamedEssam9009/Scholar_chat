@@ -86,7 +86,7 @@ class _LoginPageState extends State<LoginPage> {
                   height: 10,
                 ),
                 CustomTextFormField(
-                  //obscureText: true,
+                  obscureText: true,
                   onChanged: (data) {
                     password = data;
                   },
