@@ -1,31 +1,28 @@
-import '../helper/show_snack_bar.dart';
-import 'chat_page.dart';
-import 'register_page.dart';
-import '../widgets/custom_button.dart';
-import '../widgets/custom_text_form_field.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 import '../constants.dart';
+import '../helper/show_snack_bar.dart';
+import '../widgets/custom_button.dart';
+import '../widgets/custom_text_form_field.dart';
+import 'chat_page.dart';
+import 'register_page.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+  const LoginPage({Key? key}) : super(key: key);
 
-  static String id = 'loginPage';
-
+  static String id = 'login page';
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
-  String? email;
-
-  String? password;
-
   bool isLoading = false;
 
   GlobalKey<FormState> formKey = GlobalKey();
+
+  String? email, password;
 
   @override
   Widget build(BuildContext context) {
@@ -39,9 +36,7 @@ class _LoginPageState extends State<LoginPage> {
             key: formKey,
             child: ListView(
               children: [
-                const SizedBox(
-                  height: 75,
-                ),
+                const SizedBox(height: 75),
                 Image.asset(
                   'assets/images/scholar.png',
                   height: 100,
@@ -59,9 +54,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 75,
-                ),
+                const SizedBox(height: 75),
                 const Row(
                   children: [
                     Text(
@@ -73,28 +66,22 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
-                CustomTextFormField(
+                const SizedBox(height: 20),
+                CustomFormTextField(
                   onChanged: (data) {
                     email = data;
                   },
                   hintText: 'Email',
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
-                CustomTextFormField(
+                const SizedBox(height: 10),
+                CustomFormTextField(
                   obscureText: true,
                   onChanged: (data) {
                     password = data;
                   },
                   hintText: 'Password',
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
+                const SizedBox(height: 20),
                 CustomButton(
                   onTap: () async {
                     if (formKey.currentState!.validate()) {
@@ -155,10 +142,7 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Future<void> loginUser() async {
-    UserCredential user =
-        await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: email!,
-      password: password!,
-    );
+    UserCredential user = await FirebaseAuth.instance
+        .signInWithEmailAndPassword(email: email!, password: password!);
   }
 }

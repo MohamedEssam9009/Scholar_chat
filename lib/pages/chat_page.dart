@@ -1,20 +1,20 @@
-import '../constants.dart';
-import '../models/message.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
+import '../constants.dart';
+import '../models/message.dart';
 import '../widgets/chat_bubble.dart';
 
 class ChatPage extends StatelessWidget {
-  ChatPage({super.key});
+  ChatPage({Key? key}) : super(key: key);
 
-  static String id = 'chatPage';
+  static String id = 'ChatPage';
 
-  final scrollController = ScrollController();
+  final _controller = ScrollController();
 
   CollectionReference messages =
-      FirebaseFirestore.instance.collection(kMessagesCollection);
-
+      FirebaseFirestore.instance.collection(kMessagesCollections);
   TextEditingController controller = TextEditingController();
 
   @override
@@ -28,6 +28,7 @@ class ChatPage extends StatelessWidget {
           for (int i = 0; i < snapshot.data!.docs.length; i++) {
             messagesList.add(Message.fromJson(snapshot.data!.docs[i]));
           }
+
           return Scaffold(
             appBar: AppBar(
               automaticallyImplyLeading: false,
@@ -37,9 +38,9 @@ class ChatPage extends StatelessWidget {
                 children: [
                   Image.asset(
                     kLogo,
-                    height: 50.0,
+                    height: 50,
                   ),
-                  const Text('Chat'),
+                  const Text('chat'),
                 ],
               ),
               centerTitle: true,
@@ -48,32 +49,32 @@ class ChatPage extends StatelessWidget {
               children: [
                 Expanded(
                   child: ListView.builder(
-                    reverse: true,
-                    controller: scrollController,
-                    itemCount: messagesList.length,
-                    itemBuilder: (context, index) {
-                      return messagesList[index].id == email
-                          ? ChatBubbleForFriend(
-                              message: messagesList[index],
-                            )
-                          : ChatBubbleForFriend(message: messagesList[index]);
-                    },
-                  ),
+                      reverse: true,
+                      controller: _controller,
+                      itemCount: messagesList.length,
+                      itemBuilder: (context, index) {
+                        return messagesList[index].id == email
+                            ? ChatBubble(
+                                message: messagesList[index],
+                              )
+                            : ChatBubbleForFriend(message: messagesList[index]);
+                      }),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.all(16),
                   child: TextField(
                     controller: controller,
                     onSubmitted: (data) {
-                      messages.add({
-                        kMessage: data,
-                        kCreatedAt: DateTime.now(),
-                        'id': email,
-                      });
-
+                      messages.add(
+                        {
+                          kMessage: data,
+                          kCreatedAt: DateTime.now(),
+                          'id': email
+                        },
+                      );
                       controller.clear();
-                      scrollController.animateTo(
-                        0.0,
+                      _controller.animateTo(
+                        0,
                         duration: const Duration(milliseconds: 500),
                         curve: Curves.easeIn,
                       );
@@ -85,11 +86,13 @@ class ChatPage extends StatelessWidget {
                         color: kPrimaryColor,
                       ),
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(16.0),
+                        borderRadius: BorderRadius.circular(16),
                       ),
                       enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(16.0),
-                        borderSide: const BorderSide(color: kPrimaryColor),
+                        borderRadius: BorderRadius.circular(16),
+                        borderSide: const BorderSide(
+                          color: kPrimaryColor,
+                        ),
                       ),
                     ),
                   ),
@@ -98,7 +101,7 @@ class ChatPage extends StatelessWidget {
             ),
           );
         } else {
-          return const Text('Loading.........');
+          return const Text('Loading...');
         }
       },
     );

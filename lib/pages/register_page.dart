@@ -1,18 +1,17 @@
-import '../constants.dart';
-import '../helper/show_snack_bar.dart';
-import 'chat_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
+import '../constants.dart';
+import '../helper/show_snack_bar.dart';
 import '../widgets/custom_button.dart';
 import '../widgets/custom_text_form_field.dart';
+import 'chat_page.dart';
 
-// ignore: must_be_immutable
 class RegisterPage extends StatefulWidget {
-  const RegisterPage({super.key});
+  const RegisterPage({Key? key}) : super(key: key);
 
-  static String id = 'registerPage';
+  static String id = 'RegisterPage';
 
   @override
   State<RegisterPage> createState() => _RegisterPageState();
@@ -34,15 +33,15 @@ class _RegisterPageState extends State<RegisterPage> {
       child: Scaffold(
         backgroundColor: kPrimaryColor,
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          padding: const EdgeInsets.symmetric(horizontal: 8),
           child: Form(
             key: formKey,
             child: ListView(
               children: [
-                const SizedBox(height: 75.0),
+                const SizedBox(height: 75),
                 Image.asset(
                   'assets/images/scholar.png',
-                  height: 100.0,
+                  height: 100,
                 ),
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -50,40 +49,40 @@ class _RegisterPageState extends State<RegisterPage> {
                     Text(
                       'Scholar Chat',
                       style: TextStyle(
-                        fontSize: 32.0,
+                        fontSize: 32,
                         color: Colors.white,
-                        fontFamily: 'Pacifico',
+                        fontFamily: 'pacifico',
                       ),
                     ),
                   ],
                 ),
-                const SizedBox(height: 75.0),
+                const SizedBox(height: 75),
                 const Row(
                   children: [
                     Text(
-                      'Register',
+                      'REGISTER',
                       style: TextStyle(
-                        fontSize: 24.0,
+                        fontSize: 24,
                         color: Colors.white,
                       ),
                     ),
                   ],
                 ),
-                const SizedBox(height: 20.0),
-                CustomTextFormField(
+                const SizedBox(height: 20),
+                CustomFormTextField(
                   onChanged: (data) {
                     email = data;
                   },
                   hintText: 'Email',
                 ),
-                const SizedBox(height: 10.0),
-                CustomTextFormField(
+                const SizedBox(height: 10),
+                CustomFormTextField(
                   onChanged: (data) {
                     password = data;
                   },
                   hintText: 'Password',
                 ),
-                const SizedBox(height: 20.0),
+                const SizedBox(height: 20),
                 CustomButton(
                   onTap: () async {
                     if (formKey.currentState!.validate()) {
@@ -109,22 +108,24 @@ class _RegisterPageState extends State<RegisterPage> {
                   },
                   text: 'REGISTER',
                 ),
-                const SizedBox(height: 10.0),
+                const SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text(
-                      'Already have an account',
-                      style: TextStyle(color: Colors.white),
+                      'already have an account?',
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
                     ),
                     GestureDetector(
                       onTap: () {
                         Navigator.pop(context);
                       },
                       child: const Text(
-                        ' Login',
+                        '  Login',
                         style: TextStyle(
-                          color: Color(0xff27EDE6),
+                          color: Color(0xffC7EDE6),
                         ),
                       ),
                     ),
@@ -139,10 +140,7 @@ class _RegisterPageState extends State<RegisterPage> {
   }
 
   Future<void> registerUser() async {
-    UserCredential user =
-        await FirebaseAuth.instance.createUserWithEmailAndPassword(
-      email: email!,
-      password: password!,
-    );
+    UserCredential user = await FirebaseAuth.instance
+        .createUserWithEmailAndPassword(email: email!, password: password!);
   }
 }

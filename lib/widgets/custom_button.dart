@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 
-// ignore: must_be_immutable
 class CustomButton extends StatelessWidget {
-  CustomButton({super.key, required this.text, this.onTap});
+  CustomButton({super.key, this.onTap, required this.text});
 
-  String text;
   VoidCallback? onTap;
-
+  String text;
+  
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -14,10 +13,10 @@ class CustomButton extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(8.0),
+          borderRadius: BorderRadius.circular(8),
         ),
         width: double.infinity,
-        height: 60.0,
+        height: 60,
         child: Center(
           child: Text(text),
         ),
