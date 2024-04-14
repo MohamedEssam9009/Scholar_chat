@@ -1,16 +1,5 @@
-# chat_app
+# Scholar Caht
+This chat app harnesses the power of Firebase Authentication and Firestore to offer a seamless and secure messaging experience. With Firebase Authentication, users can easily sign up, log in, and maintain their accounts securely. Firestore enables real-time data synchronization, ensuring instant message delivery and updates. Whether for personal or professional use, this app provides a reliable and scalable platform for communication while prioritizing user privacy and data integrity.
 
-A new Flutter project.
+## Screen
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
