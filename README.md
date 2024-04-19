@@ -1,6 +1,6 @@
 # Scholar Chat
 
-Welcome to the Flutter Chat App! This app allows users to register using their names and chat with other users in real-time.
+Welcome to the Scholar Chat! This app allows users to register using their names and chat with other users in real-time.
 
 ## Features
 
