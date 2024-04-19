@@ -5,7 +5,7 @@ import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import '../constants.dart';
 import '../helper/show_snack_bar.dart';
 import '../widgets/custom_button.dart';
-import '../widgets/custom_text_form_field.dart';
+import '../widgets/custom_text_field.dart';
 import 'chat_page.dart';
 
 class RegisterPage extends StatefulWidget {

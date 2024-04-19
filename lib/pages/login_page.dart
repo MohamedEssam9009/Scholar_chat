@@ -1,3 +1,4 @@
+import 'register_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
@@ -5,9 +6,8 @@ import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import '../constants.dart';
 import '../helper/show_snack_bar.dart';
 import '../widgets/custom_button.dart';
-import '../widgets/custom_text_form_field.dart';
+import '../widgets/custom_text_field.dart';
 import 'chat_page.dart';
-import 'register_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -23,7 +23,6 @@ class _LoginPageState extends State<LoginPage> {
   GlobalKey<FormState> formKey = GlobalKey();
 
   String? email, password;
-
   @override
   Widget build(BuildContext context) {
     return ModalProgressHUD(
