@@ -47,8 +47,6 @@ flutter run
 
 ## Dependencies
 
-- [Flutter](https://flutter.dev/)
-- [Firebase](https://firebase.google.com/) (for real-time database)
 
 ## Contributing
 
@@ -61,7 +59,4 @@ Contributions are welcome! If you'd like to contribute to this project, please f
 5. Push to the branch (`git push origin feature/improvement`).
 6. Create a new Pull Request.
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).
 
