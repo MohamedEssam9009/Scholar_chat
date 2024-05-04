@@ -48,7 +48,7 @@ class _LoginPageState extends State<LoginPage> {
                       style: TextStyle(
                         fontSize: 32,
                         color: Colors.white,
-                        fontFamily: 'pacifico',
+                        fontFamily: 'Pacifico',
                       ),
                     ),
                   ],

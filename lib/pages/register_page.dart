@@ -51,7 +51,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       style: TextStyle(
                         fontSize: 32,
                         color: Colors.white,
-                        fontFamily: 'pacifico',
+                        fontFamily: 'Pacifico',
                       ),
                     ),
                   ],
