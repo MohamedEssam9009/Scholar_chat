@@ -1,8 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
+
 import '../constants.dart';
 import '../models/message.dart';
 import '../widgets/chat_bubble.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
 
 class ChatPage extends StatelessWidget {
   static String id = 'ChatPage';
@@ -46,16 +47,17 @@ class ChatPage extends StatelessWidget {
               children: [
                 Expanded(
                   child: ListView.builder(
-                      reverse: true,
-                      controller: _controller,
-                      itemCount: messagesList.length,
-                      itemBuilder: (context, index) {
-                        return messagesList[index].id == email
-                            ? ChatBubble(
-                                message: messagesList[index],
-                              )
-                            : ChatBubbleForFriend(message: messagesList[index]);
-                      }),
+                    reverse: true,
+                    controller: _controller,
+                    itemCount: messagesList.length,
+                    itemBuilder: (context, index) {
+                      return messagesList[index].id == email
+                          ? ChatBubble(
+                              message: messagesList[index],
+                            )
+                          : ChatBubbleForFriend(message: messagesList[index]);
+                    },
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(16),
@@ -70,9 +72,11 @@ class ChatPage extends StatelessWidget {
                         },
                       );
                       controller.clear();
-                      _controller.animateTo(0,
-                          duration: const Duration(milliseconds: 500),
-                          curve: Curves.easeIn);
+                      _controller.animateTo(
+                        0,
+                        duration: const Duration(milliseconds: 500),
+                        curve: Curves.easeIn,
+                      );
                     },
                     decoration: InputDecoration(
                       hintText: 'Send Message',
