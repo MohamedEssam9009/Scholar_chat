@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
-import 'cubits/register_cubit/register_state.dart';
+import 'cubits/auth_cubit/auth_cubit.dart';
+import 'cubits/auth_cubit/auth_state.dart';
 
 import '../constants.dart';
 import '../helper/show_snack_bar.dart';
 import '../widgets/custom_button.dart';
 import '../widgets/custom_text_field.dart';
 import 'chat_page.dart';
-import 'cubits/register_cubit/register_cubit.dart';
 
 class RegisterPage extends StatelessWidget {
   static String id = 'RegisterPage';
@@ -25,7 +25,7 @@ class RegisterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<RegisterCubit, RegisterState>(
+    return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is RegisterLoading) {
           isLoading = true;
@@ -96,7 +96,7 @@ class RegisterPage extends StatelessWidget {
                     CustomButton(
                       onTap: () async {
                         if (formKey.currentState!.validate()) {
-                          BlocProvider.of<RegisterCubit>(context)
+                          BlocProvider.of<AuthCubit>(context)
                               .registerUser(email: email!, password: password!);
                         } else {}
                       },

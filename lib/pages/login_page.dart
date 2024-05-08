@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'cubits/auth_cubit/auth_cubit.dart';
+import 'cubits/auth_cubit/auth_state.dart';
 import 'cubits/chat_cubit/chat_cubit.dart';
-import 'cubits/login_cubit/login_cubit.dart';
-import 'cubits/login_cubit/login_state.dart';
 
 import '../constants.dart';
 import '../helper/show_snack_bar.dart';
@@ -25,7 +25,7 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<LoginCubit, LoginState>(
+    return BlocListener<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is LoginLoading) {
           isLoading = true;
@@ -97,7 +97,7 @@ class LoginPage extends StatelessWidget {
                   CustomButton(
                     onTap: () async {
                       if (formKey.currentState!.validate()) {
-                        BlocProvider.of<LoginCubit>(context)
+                        BlocProvider.of<AuthCubit>(context)
                             .loginUser(email: email!, password: password!);
                       } else {}
                     },
