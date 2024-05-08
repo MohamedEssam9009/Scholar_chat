@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'cubits/register_cubit/register_state.dart';
 
 import '../constants.dart';
 import '../helper/show_snack_bar.dart';

@@ -1,7 +1,5 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-part of 'chat_cubit.dart';
+import '../../../models/message.dart';
 
-@immutable
 abstract class ChatState {}
 
 class ChatInitial extends ChatState {}
