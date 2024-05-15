@@ -5,12 +5,12 @@ This Flutter app provides a simple platform for users to register using their na
 ## Features
 
 - **Simple Registration:** Users can register with just their names, no email or password is required.
-- **Real-time Messaging:** Chat with other registered users in real time.
+- **Real-time Messaging:** Chat with other registered users in real-time.
 - **Clean and Intuitive UI:** User-friendly interface for smooth navigation and messaging experience.
 
-## Screenshots
+## Screens
 
-
+![Google Pixel 3 Presentation](https://github.com/MohamedEssam9009/Scholar_chat/assets/77198018/dfd14ad7-f46a-4b4c-b522-7e7246260e22)
 
 ## Installation
 
