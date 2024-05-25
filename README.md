@@ -12,32 +12,6 @@ This Flutter app provides a simple platform for users to register using their na
 
 ![Google Pixel 3 Presentation](https://github.com/MohamedEssam9009/Scholar_chat/assets/77198018/dfd14ad7-f46a-4b4c-b522-7e7246260e22)
 
-## Installation
-
-1. Clone this repository to your local machine:
-
-```
-git clone https://github.com/your_username/flutter_chat_app.git
-```
-
-2. Navigate to the project directory:
-
-```
-cd scholar_chat
-```
-
-3. Install dependencies:
-
-```
-flutter pub get
-```
-
-4. Run the app:
-
-```
-flutter run
-```
-
 ## Usage
 
 1. Launch the app on your device or simulator.
